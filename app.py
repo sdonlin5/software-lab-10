@@ -63,6 +63,16 @@ def select():
     table = create_table(results)
     return table
 
+# db_drop
+@app.rout()('/db_drop')
+def drop():
+    conn = psycopg2.connect(db_url)
+    cur = conn.cursor()
+    cur.execute("DROP TABLE Basketball;")
+    conn.commit()
+    conn.close()
+    return "dropped"
+
 """
     table = '<table>\n'
     for row in results:
@@ -74,7 +84,7 @@ def select():
 """
 
 def create_table(data):
-    table = '<table style="padding: 10px;">\n'
+    table = '<table style="border: 2px solid black; border-spacing: 5; padding: 10px;">\n'
     for row in data:
         table += '  <tr>\n'
         for col in row:
