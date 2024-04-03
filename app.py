@@ -72,7 +72,7 @@ def drop():
 
 def create_table(data):
     """Takes data from SQL query in list format and creates an html table returned as a string."""
-    table = '<table style="border: 2px solid black; border-spacing: 5; padding: 10px;">\n'
+    table = '<table style="border: 2px solid black; border-collapse: collapse; border-spacing: 5; padding: 10px;">\n'
     for row in data:
         table += '  <tr>\n'
         for col in row:
