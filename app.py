@@ -61,12 +61,12 @@ def select():
     results = list(cur.fetchall())
     conn.close()
 
-    for row in range(len(results)):
-        table = '<table> \n'
-        for i in range(len(row)):
-            table += '    <td>{i}</td>\n'
-        
-        table += ' </tr>'
+    table = '<table>\n'
+    for row in results:
+        table += '    <tr>\n'
+        for col in row:
+            table += '        <td>{}</td>\n'.format(col)
+        table += '    </tr>\n'
     table += '</table>'
 
     return table
