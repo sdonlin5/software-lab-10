@@ -60,7 +60,10 @@ def select():
     cur.execute("SELECT * FROM Basketball")
     results = list(cur.fetchall())
     conn.close()
+    table = create_table(results)
+    return table
 
+"""
     table = '<table>\n'
     for row in results:
         table += '    <tr>\n'
@@ -68,6 +71,15 @@ def select():
             table += '        <td>{}</td>\n'.format(col)
         table += '    </tr>\n'
     table += '</table>'
+"""
+
+def create_table(data):
+    table = '<table>\n'
+    for row in data:
+        table += '    <tr>\n'
+        for col in row:
+            table += '        <td>{}</td>\n'.format(col)
+        table += '    </tr>\n'
+    table += '</table>'
 
     return table
-
