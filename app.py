@@ -10,13 +10,13 @@ db_url = "postgres://render_db_52tl_user:qQfI0Iz8EuSisgvBnslUQWSBU0hUV2No@dpg-co
 def hello_world():
     return 'Hello World from Stephen Donlin in 3308'
 
+
 @app.route('/db_test')
 def testing():
     conn = psycopg2.connect(db_url)
     conn.close()
     return "Database connection successful."
 
-# db_create
 @app.route('/db_create')
 def create():
     conn = psycopg2.connect(db_url)
@@ -34,7 +34,6 @@ def create():
     conn.close()
     return "Basketball table created successfully."
 
-#db_insert
 @app.route('/db_insert')
 def inserting():
     conn = psycopg2.connect(db_url)
@@ -51,8 +50,6 @@ def inserting():
     conn.close()
     return "Successfully populated basketball table."
 
-
-# db_select
 @app.route('/db_select')
 def select():
     conn = psycopg2.connect(db_url)
@@ -63,7 +60,6 @@ def select():
     table = create_table(results)
     return table
 
-# db_drop
 @app.route('/db_drop')
 def drop():
     conn = psycopg2.connect(db_url)
@@ -73,23 +69,14 @@ def drop():
     conn.close()
     return "Basketball table dropped sucessfully."
 
-"""
-    table = '<table>\n'
-    for row in results:
-        table += '    <tr>\n'
-        for col in row:
-            table += '        <td>{}</td>\n'.format(col)
-        table += '    </tr>\n'
-    table += '</table>'
-"""
 
 def create_table(data):
+    """Takes data from SQL query in list format and creates an html table returned as a string."""
     table = '<table style="border: 2px solid black; border-spacing: 5; padding: 10px;">\n'
     for row in data:
         table += '  <tr>\n'
         for col in row:
-            table += '  <td>{}</td>\n'.format(col)
+            table += '  <td style="border: 1px solid black; padding = 20px;">{}</td>\n'.format(col)
         table += '  </tr>\n'
     table += '</table>'
-
     return table
