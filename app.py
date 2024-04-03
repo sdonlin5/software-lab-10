@@ -74,7 +74,7 @@ def select():
 """
 
 def create_table(data):
-    table += '<table style="padding: 15px;">\n'
+    table = '<table style="padding: 10px;">\n'
     for row in data:
         table += '  <tr>\n'
         for col in row:
