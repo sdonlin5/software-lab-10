@@ -62,11 +62,19 @@ def select():
     table = create_table(results)
     return table
 
+"""
+#db_drop
+@app.route('/db_drop')
+def drop():
+    conn = 
+"""
 
-# Convert tuple to list
+
+
 # Helper function to create a table from queried data
 def create_table(data):
-    data = list(data)
+    top_row = list(data[0])
+
     table = '<table> \n'
 
     # Create the header
@@ -78,7 +86,7 @@ def create_table(data):
 
     # Get table data
     for row in data[1:]:
-        r = row.split(',') # split on comma
+        r = list(row).split(',') # split on comma
         table += '  <tr>\n' # open row tag
         for column in r:
             table += '    <td>{0}</td>\n'.format(column.strip())
