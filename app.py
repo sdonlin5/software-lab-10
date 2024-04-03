@@ -64,7 +64,7 @@ def select():
     return table
 
 # db_drop
-@app.route()('/db_drop')
+@app.route('/db_drop')
 def drop():
     conn = psycopg2.connect(db_url)
     cur = conn.cursor()
