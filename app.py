@@ -63,7 +63,7 @@ def select():
     return table
 
 
-
+# Convert tuple to list
 # Helper function to create a table from queried data
 def create_table(data):
     data = list(data)
