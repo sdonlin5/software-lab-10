@@ -74,12 +74,12 @@ def select():
 """
 
 def create_table(data):
-    table = '<table>\n'
+    table += '<table style="padding: 15px;">\n'
     for row in data:
-        table += '    <tr>\n'
+        table += '  <tr>\n'
         for col in row:
-            table += '        <td>{}</td>\n'.format(col)
-        table += '    </tr>\n'
+            table += '  <td>{}</td>\n'.format(col)
+        table += '  </tr>\n'
     table += '</table>'
 
     return table
