@@ -51,6 +51,7 @@ def inserting():
     conn.close()
     return "Successfully populated basketball table."
 
+"""
 # db_select
 @app.route('/db_select')
 def select():
@@ -64,11 +65,13 @@ def select():
     #return table
 
 
-"""
+
 #db_drop
 @app.route('/db_drop')
 def drop():
     conn = 
+
+
+def make_table(data):
+    for i in data: 
 """
-
-
