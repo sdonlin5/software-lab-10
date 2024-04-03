@@ -71,7 +71,7 @@ def drop():
     cur.execute("DROP TABLE Basketball;")
     conn.commit()
     conn.close()
-    return "dropped"
+    return "Basketball table dropped sucessfully."
 
 """
     table = '<table>\n'
