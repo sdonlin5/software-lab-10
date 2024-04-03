@@ -52,23 +52,15 @@ def inserting():
     return "Successfully populated basketball table."
 
 # db_select
-@app.route('/db-select')
+@app.route('/db_select')
 def select():
     conn = psycopg2.connect(db_url)
     cur = conn.cursor()
     cur.execute("SELECT * FROM Basketball")
-    results = cur.fetchall()
+    results = list(cur.fetchall())
     conn.close()
     table = create_table(results)
     return table
-
-
-
-
-
-
-
-
 
 
 
