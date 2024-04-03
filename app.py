@@ -60,26 +60,14 @@ def select():
     cur.execute("SELECT * FROM Basketball")
     results = list(cur.fetchall())
     conn.close()
-    table = make_table(results)
-    return table
 
-
-#db_drop
-#@app.route('/db_drop')
-#def drop():
-#    conn = 
-
-
-def make_table(data):
-    table = '<table> \n'
-
-    for i in range(len(data)):
-        r = i.split(',') # split on comma
-        table += '  <tr>\n' # open row tag
-        for column in r:
-            table += '    <td>{0}</td>\n'.format(column.strip())
-        table += '  </tr>\n' # close row tag
-    
-    # Close table tag
+    for row in range(len(results)):
+        table = '<table> \n'
+        for i in range(len(row)):
+            table += '    <td>{i}</td>\n'
+        
+        table += ' </tr>'
     table += '</table>'
+
     return table
+
