@@ -59,7 +59,7 @@ def select():
     cur.execute("SELECT * FROM Basketball")
     results = list(cur.fetchall())
     conn.close()
-    return type(results)
+    return results
     #table = create_table(results)
     #return table
 
@@ -72,29 +72,3 @@ def drop():
 """
 
 
-
-# Helper function to create a table from queried data
-def create_table(data):
-    header = list(data[0])
-    table = '<table> \n'
-
-
-
-    # Create the header
-    header = header.split(',')
-    table += '  <tr> \n'
-    for c in header:
-        table += '      <th>{0}</th>\n'.format(c.strip())
-    table += '  </tr>\n'
-
-    # Get table data
-    for i in data[1:]:
-        r = list(i).split(',') # split on comma
-        table += '  <tr>\n' # open row tag
-        for column in r:
-            table += '    <td>{0}</td>\n'.format(column.strip())
-        table += '  </tr>\n' # close row tag\
-
-    # Close table tag
-    table += '</table>'
-    return table
