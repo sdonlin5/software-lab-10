@@ -66,6 +66,7 @@ def select():
 
 # Helper function to create a table from queried data
 def create_table(data):
+    data = list(data)
     table = '<table> \n'
 
     # Create the header
