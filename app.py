@@ -51,7 +51,7 @@ def inserting():
     conn.close()
     return "Successfully populated basketball table."
 
-"""
+
 # db_select
 @app.route('/db_select')
 def select():
@@ -60,18 +60,26 @@ def select():
     cur.execute("SELECT * FROM Basketball")
     results = list(cur.fetchall())
     conn.close()
-    return results
-    #table = create_table(results)
-    #return table
-
+    table = make_table(results)
+    return table
 
 
 #db_drop
-@app.route('/db_drop')
-def drop():
-    conn = 
+#@app.route('/db_drop')
+#def drop():
+#    conn = 
 
 
 def make_table(data):
-    for i in data: 
-"""
+    table = '<table> \n'
+
+    for i in range(len(data)):
+        r = i.split(',') # split on comma
+        table += '  <tr>\n' # open row tag
+        for column in r:
+            table += '    <td>{0}</td>\n'.format(column.strip())
+        table += '  </tr>\n' # close row tag
+    
+    # Close table tag
+    table += '</table>'
+    return table
