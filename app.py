@@ -73,20 +73,19 @@ def drop():
 
 # Helper function to create a table from queried data
 def create_table(data):
-    top_row = list(data[0])
-
+    header = list(data[0])
     table = '<table> \n'
 
     # Create the header
-    table_header = data[0].split(',')
+    header = header.split(',')
     table += '  <tr> \n'
-    for c in table_header:
+    for c in header:
         table += '      <th>{0}</th>\n'.format(c.strip())
     table += '  </tr>\n'
 
     # Get table data
-    for row in data[1:]:
-        r = list(row).split(',') # split on comma
+    for i in data[1:]:
+        r = list(i).split(',') # split on comma
         table += '  <tr>\n' # open row tag
         for column in r:
             table += '    <td>{0}</td>\n'.format(column.strip())
